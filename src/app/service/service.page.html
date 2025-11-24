@@ -1,0 +1,224 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Service</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-content">
+
+  <div class="wash-service">
+    <img src="../../assets/img/washservice.png" alt="">
+  </div>
+
+  <div class="service-selection">
+    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="Wash">
+        <ion-label>Wash</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="Dry">
+        <ion-label>Dry</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="special">
+        <ion-label>Special</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="Press">
+        <ion-label>Press</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div class="service-items">
+    <div class="wear">
+      <div class="icon">
+        <img src="../../assets/img/everydayW.png" alt="">
+      </div>
+
+      <div class="details">
+        <h3>Everyday Wear</h3>
+        <h4>₱140.00 / per load</h4>
+      </div>
+
+      <div class="add-btn">
+        <img src="../../assets/img/addbtn.png" alt="">
+      </div>
+    </div>
+
+    <div class="wear">
+      <div class="icon">
+        <img src="../../assets/img/casualW.png" alt="">
+      </div>
+
+      <div class="details">
+        <h3>casual Wear</h3>
+        <h4>₱140.00 / per load</h4>
+      </div>
+
+      <div class="add-btn">
+        <img src="../../assets/img/addbtn.png" alt="">
+      </div>
+    </div>
+
+    <div class="wear">
+      <div class="icon">
+        <img src="../../assets/img/delicates.png" alt="">
+      </div>
+
+      <div class="details">
+        <h3>Delicates</h3>
+        <h4>₱140.00 / per load</h4>
+      </div>
+
+      <div class="add-btn">
+        <img src="../../assets/img/addbtn.png" alt="">
+      </div>
+    </div>
+
+    <div class="wear">
+      <div class="icon">
+        <img src="../../assets/img/bedsheet.png" alt="">
+      </div>
+
+      <div class="details">
+        <h3>Bedsheets</h3>
+        <h4>₱140.00 / per load</h4>
+      </div>
+
+      <div class="add-btn">
+        <img src="../../assets/img/addbtn.png" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="casual-wear card-section">
+  <div class="section-header">
+    <h3>Casual Wear</h3>
+    <span class="badge required">Required</span>
+  </div>
+  <h5 class="subtitle">Select 1</h5>
+
+  <div class="card">
+    <ion-item lines="none" class="option-row">
+      <ion-radio slot="end"></ion-radio>
+      <div class="opt-label">
+        <h4>White</h4>
+      </div>
+      <div class="opt-price">
+        <h4>₱70.00 / per load</h4>
+      </div>
+    </ion-item>
+
+    <ion-item lines="none" class="option-row">
+      <ion-radio slot="end"></ion-radio>
+      <div class="opt-label">
+        <h4>Colored</h4>
+      </div>
+      <div class="opt-price">
+        <h4>₱70.00 / per load</h4>
+      </div>
+    </ion-item>
+
+    <ion-item lines="none" class="option-row">
+      <ion-radio slot="end"></ion-radio>
+      <div class="opt-label">
+        <h4>Mix</h4>
+      </div>
+      <div class="opt-price">
+        <h4>₱70.00 / per load</h4>
+      </div>
+    </ion-item>
+  </div>
+</div>
+
+<!-- WEIGHT -->
+<div class="casual-wear-weight card-section">
+  <div class="section-header">
+    <h3>Weight</h3>
+    <span class="badge required">Required</span>
+  </div>
+  <h5 class="subtitle">Select 1</h5>
+
+  <div class="card">
+    <ion-item lines="none" class="option-row">
+      <ion-radio slot="end"></ion-radio>
+      <div class="opt-label">
+        <h4>≤ 8KG</h4>
+      </div>
+      <div class="opt-price">
+        <h4>Free</h4>
+      </div>
+    </ion-item>
+
+    <ion-item lines="none" class="option-row">
+      <ion-radio slot="end"></ion-radio>
+      <div class="opt-label">
+        <h4>› 8KG</h4>
+      </div>
+      <div class="opt-price">
+        <h4>+₱20.00</h4>
+      </div>
+    </ion-item>
+  </div>
+</div>
+
+<!-- ADDITIONAL SERVICES -->
+<div class="casual-wear-weight-additional card-section">
+  <div class="section-header">
+    <h3>Additional Services</h3>
+    <span class="badge optional">Optional</span>
+  </div>
+  <h5 class="subtitle">Select up to 3</h5>
+
+  <div class="card">
+    <ion-item lines="none" class="option-row">
+      <ion-radio slot="end"></ion-radio>
+      <div class="opt-label">
+        <h4>Fold</h4>
+      </div>
+      <div class="opt-price">
+        <h4>+₱20.00</h4>
+      </div>
+    </ion-item>
+
+    <ion-item lines="none" class="option-row">
+      <ion-radio slot="end"></ion-radio>
+      <div class="opt-label">
+        <h4>Iron</h4>
+      </div>
+      <div class="opt-price">
+        <h4>+₱50.00</h4>
+      </div>
+    </ion-item>
+
+    <ion-item lines="none" class="option-row">
+      <ion-radio slot="end"></ion-radio>
+      <div class="opt-label">
+        <h4>Dry</h4>
+      </div>
+      <div class="opt-price">
+        <h4>+₱70.00</h4>
+      </div>
+    </ion-item>
+  </div>
+</div>
+
+<!-- SPECIAL INSTRUCTIONS -->
+<div class="special-instructions">
+  <h3>Special Instructions</h3>
+  <h4 class="desc">
+    We'll take note of your preferences. Some special requests might not be guaranteed depending on load or material.
+  </h4>
+
+  <div class="instructions-box">
+    <h4 class="label">Instructions</h4>
+    <h4 class="placeholder">e.g. separate clothes by color</h4>
+  </div>
+</div>
+
+
+</ion-content>
