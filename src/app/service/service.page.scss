@@ -1,165 +1,188 @@
-ion-title {
-  margin-left: 8px;
-  font-weight: bold;
-  font-size: 1.2rem;
+/* Header title */
+ion-title { 
+  margin-left: 8px; 
+  font-weight: bold; 
+  font-size: 1.2rem; 
 }
 
-.wash-service {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
+/* Main content padding */
+.main-content { 
+  padding: 15px; 
 }
 
-.service-selection {
-  padding: 0 12px;
+/* Wash service image */
+.wash-service { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 10px; 
 }
 
-.service-items {
-  padding: 20px 10px;
-
+/* Segment buttons container */
+.service-selection { 
+  padding: 0 12px; 
 }
 
-.wear {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #f5f7fa;
-  border-radius: 14px;
-  padding: 14px 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+/* Service items container */
+.service-items { 
+  padding: 20px 10px; 
 }
 
-.icon img {
-  width: 42px;
-  height: 42px;
+/* Wear cards */
+.wear { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  background: #f5f7fa; 
+  border-radius: 14px; 
+  padding: 14px 16px; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08); 
 }
 
-.details {
-  flex: 1;
-  margin-left: 12px;
+/* Icon image */
+.icon img { 
+  width: 42px; 
+  height: 42px; 
 }
 
-.details h3 {
-  margin: 0;
-  font-size: 16px;
-  font-weight: 600;
+/* Details text */
+.details { 
+  flex: 1; 
+  margin-left: 12px; 
+}
+.details h3 { 
+  margin: 0; 
+  font-size: 16px; 
+  font-weight: 600; 
+}
+.details h4 { 
+  margin: 4px 0 0 0; 
+  font-size: 13px; 
+  color: #666; 
 }
 
-.details h4 {
-  margin: 4px 0 0 0;
-  font-size: 13px;
-  color: #666;
+/* Add button */
+.add-btn img { 
+  width: 28px; 
+  height: 28px; 
 }
 
-.add-btn img {
-  width: 28px;
-  height: 28px;
+/* Card section layout */
+.card-section { 
+  padding: 20px 16px; 
 }
 
-/* SECTION LAYOUT */
-.card-section {
-  padding: 20px 16px;
+/* Section header */
+.section-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+.section-header h3 { 
+  margin: 0; 
+  font-size: 18px; 
+  font-weight: 700; 
 }
 
-/* HEADER ROW */
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Badges */
+.badge { 
+  padding: 4px 10px; 
+  border-radius: 10px; 
+  font-size: 12px; 
+  font-weight: 600; 
+  text-transform: capitalize; 
+}
+.badge.required { 
+  background: #d8efff; 
+  color: #0077b6; 
+}
+.badge.optional { 
+  background: #e8e6e6; 
+  color: #7a7a7a; 
 }
 
-.section-header h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 700;
+/* Subtitle */
+.subtitle { 
+  margin: 4px 0 12px; 
+  font-size: 13px; 
+  color: #777; 
 }
 
-/* BADGES */
-.badge {
-  padding: 4px 10px;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: capitalize;
+/* Card box */
+.card { 
+  background: #ffffff; 
+  border-radius: 16px; 
+  padding: 6px 0; 
+  border: 1px solid #e6e6e6; 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
 }
 
-.badge.required {
-  background: #d8efff;
-  color: #0077b6;
+/* Option row */
+.option-row { 
+  display: flex; 
+  align-items: center; 
+  --background: transparent; 
+  padding: 6px 10px; 
+}
+.opt-label h4, .opt-price h4 { 
+  margin: 0; 
+  font-size: 14px; 
+}
+.opt-label { 
+  flex: 1; 
 }
 
-.badge.optional {
-  background: #e8e6e6;
-  color: #7a7a7a;
+/* Special instructions */
+.special-instructions { 
+  padding: 20px 16px; 
+}
+.special-instructions h3 { 
+  margin: 0 0 8px; 
+}
+.desc { 
+  margin: 0 0 20px; 
+  font-size: 13px; 
+  color: #666; 
+  line-height: 1.4; 
+}
+.instructions-box { 
+  background: #fff; 
+  border-radius: 12px; 
+  border: 1px solid #cfcfcf; 
+  padding: 14px; 
+}
+.instructions-box .label { 
+  font-size: 14px; 
+  margin: 0 0 4px; 
+  color: #444; 
+}
+.instructions-box .placeholder { 
+  margin: 0; 
+  font-size: 13px; 
+  color: #aaa; 
 }
 
-/* SUBTITLE */
-.subtitle {
-  margin: 4px 0 12px;
-  font-size: 13px;
-  color: #777;
+/* Product container (for dynamic products) */
+.product-container { 
+  margin-top: 15px; 
 }
-
-/* CARD BOX */
-.card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 6px 0;
-  border: 1px solid #e6e6e6;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+.product-row { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
 }
-
-/* OPTION ROW */
-.option-row {
-  display: flex;
-  align-items: center;
-  --background: transparent;
-  padding: 6px 10px;
+.product-img { 
+  width: 70px; 
+  height: 70px; 
+  border-radius: 10px; 
+  object-fit: cover; 
+  margin-right: 15px; 
 }
-
-.opt-label h4,
-.opt-price h4 {
-  margin: 0;
-  font-size: 14px;
+.product-details h2 { 
+  font-size: 18px; 
+  margin: 0; 
 }
-
-.opt-label {
-  flex: 1;
+.product-details p { 
+  margin: 0; 
+  font-size: 15px; 
 }
-
-/* SPECIAL INSTRUCTIONS */
-.special-instructions {
-  padding: 20px 16px;
-}
-
-.special-instructions h3 {
-  margin: 0 0 8px;
-}
-
-.desc {
-  margin: 0 0 20px;
-  font-size: 13px;
-  color: #666;
-  line-height: 1.4;
-}
-
-.instructions-box {
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid #cfcfcf;
-  padding: 14px;
-}
-
-.instructions-box .label {
-  font-size: 14px;
-  margin: 0 0 4px;
-  color: #444;
-}
-
-.instructions-box .placeholder {
-  margin: 0;
-  font-size: 13px;
-  color: #aaa;
-}
-
