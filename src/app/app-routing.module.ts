@@ -16,6 +16,27 @@ const routes: Routes = [
   { path: 'basket', loadComponent: () => import('./basket/basket.page').then(m => m.BasketPage) },
   { path: 'profile', loadComponent: () => import('./profile/profile.page').then(m => m.ProfilePage) },
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+
+  {
+  path: 'bubblepass',
+  loadComponent: () =>
+    import('./bubblepass/bubblepass.page').then(m => m.BubblepassPage)
+},
+
+  {
+  path: 'review-plan',
+  loadComponent: () =>
+    import('./review-plan/review-plan.page').then(m => m.ReviewPlanPage)
+}
+
+
+
+
+
     path: 'checkout',
     loadComponent: () =>
       import('./pages/checkout/checkout.page').then(m => m.CheckoutPage)

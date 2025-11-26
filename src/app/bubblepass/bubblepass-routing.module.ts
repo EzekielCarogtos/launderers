@@ -1,22 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ProfilePage } from './profile.page';
+import { BubblepassPage } from './bubblepass.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProfilePage
-  },
+    component: BubblepassPage
+  }
 
-  {
-  path: 'orders',
-  loadChildren: () =>
-    import('../orders/orders.module').then(m => m.OrdersPageModule)
-}
-
+  
 ];
-
 
 
 
@@ -24,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class ProfilePageRoutingModule {}
+export class BubblepassPageRoutingModule {}
