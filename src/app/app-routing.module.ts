@@ -16,11 +16,10 @@ const routes: Routes = [
   { path: 'basket', loadComponent: () => import('./basket/basket.page').then(m => m.BasketPage) },
   { path: 'profile', loadComponent: () => import('./profile/profile.page').then(m => m.ProfilePage) },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-
+    path: 'checkout',
+    loadComponent: () =>
+      import('./pages/checkout/checkout.page').then(m => m.CheckoutPage)
+  }
 
   //{path: '', redirectTo: 'service', pathMatch: 'full'}
 ];

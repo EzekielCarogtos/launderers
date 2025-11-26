@@ -1,0 +1,132 @@
+.page-content {
+  --ion-background-color: #f2f7fb;
+  padding: 16px;
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* SERVICE CARD */
+  .wash-service {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  width: 100%;
+}
+
+.wash-service img {
+  width: 100%;
+  max-width: 340px; /* adjust based on Figma width */
+  border-radius: 12px;
+}
+
+
+  /* DELIVERY PICKUP TOGGLE */
+  .toggle-row {
+    margin: 12px 0;
+    ion-segment {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  /* DATE BOXES */
+  .when-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+
+    .date-box {
+      flex: 1;
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+      label {
+        font-size: 12px;
+        color: #666;
+      }
+
+      .date-val {
+        font-weight: 600;
+        margin-top: 6px;
+      }
+    }
+  }
+
+  /* SUMMARY CARD */
+  .summary-card {
+    margin-top: 8px;
+
+    ion-item {
+      --inner-padding-end: 0;
+      .price {
+        font-weight: 600;
+      }
+    }
+
+    .subtotal,
+    .delivery-fee,
+    .total {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-weight: 600;
+    }
+
+    .total {
+      font-size: 1.05rem;
+      margin-top: 6px;
+    }
+  }
+
+    .cta {
+        margin-top: 14px;
+        --background: #f6d77a; /* yellow from design */
+        --color: #000;
+        border-radius: 12px;
+    }
+    }
+
+    .edit-icon {
+    font-size: 20px;
+    color: #999;
+    margin-left: auto;
+    }
+
+    .details-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+    }
+
+    .date-item {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    position: relative;
+    }
+
+    .date-item label {
+    font-size: 12px;
+    color: #6b6b6b;
+    }
+
+    .date-val {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 4px;
+    }
+
+    .edit-icon {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 18px;
+    color: #555;
+    }
+
