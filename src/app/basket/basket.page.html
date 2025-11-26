@@ -1,13 +1,124 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>basket</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Basket</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">basket</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true" class="page-content">
+
+  <div class="container">
+
+    <!-- IMAGE -->
+    <div class="wash-service">
+      <img src="assets/img/washservice.png" alt="wash service">
+    </div>
+
+    <!-- TOGGLE -->
+    <div class="toggle-row">
+      <ion-segment [(ngModel)]="deliveryType" mode="md">
+        <ion-segment-button value="delivery">
+          <ion-label>Delivery</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="pickup">
+          <ion-label>Pick Up</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <!-- DATE BOXES – ONLY SHOW IF DELIVERY -->
+    <div *ngIf="deliveryType === 'delivery'" class="details-row">
+
+      <!-- PICK UP DATE -->
+      <div class="date-item" (click)="showPickupModal = true">
+        <label>Pick up Date</label>
+        <div class="date-val">{{ pickupDate | date:'EEE, MMM d' }}</div>
+        <ion-icon name="create-outline" class="edit-icon"></ion-icon>
+      </div>
+
+      <!-- DELIVERY DATE -->
+      <div class="date-item" (click)="showDeliveryModal = true">
+        <label>Delivery Date</label>
+        <div class="date-val">{{ deliveryDate | date:'EEE, MMM d' }}</div>
+        <ion-icon name="create-outline" class="edit-icon"></ion-icon>
+      </div>
+
+    </div>
+
+    <!-- PICKUP DATE MODAL -->
+    <ion-modal 
+      [isOpen]="showPickupModal"
+      (ionModalDidDismiss)="showPickupModal = false">
+      <ng-template>
+        <ion-content>
+          <ion-datetime
+            presentation="date"
+            (ionChange)="setPickupDate($event)">
+          </ion-datetime>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <!-- DELIVERY DATE MODAL -->
+    <ion-modal 
+      [isOpen]="showDeliveryModal"
+      (ionModalDidDismiss)="showDeliveryModal = false">
+      <ng-template>
+        <ion-content>
+          <ion-datetime
+            presentation="date"
+            (ionChange)="setDeliveryDate($event)">
+          </ion-datetime>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <!-- SUMMARY CARD -->
+    <ion-card class="summary-card">
+      <ion-card-header>
+        <ion-card-subtitle>Summary</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <ion-item *ngFor="let item of items" lines="none">
+          <ion-thumbnail slot="start">
+            <img src="assets/img/casualW.png" alt="icon"/>
+          </ion-thumbnail>
+
+          <ion-label>
+            <h2>{{ item.name }}</h2>
+            <p>{{ item.note }}</p>
+          </ion-label>
+
+          <div class="price">₱ {{ item.price }}</div>
+        </ion-item>
+
+        <div class="subtotal">
+          <span>Subtotal</span>
+          <span>₱ {{ subtotal }}</span>
+        </div>
+
+        <div class="delivery-fee">
+          <span>Standard Delivery Fee</span>
+          <span>₱ {{ deliveryFee }}</span>
+        </div>
+
+        <div class="total">
+          <span>Total</span>
+          <span>₱ {{ total }}</span>
+        </div>
+
+      </ion-card-content>
+    </ion-card>
+
+    <!-- BUTTON -->
+    <ion-button expand="block" class="cta" (click)="goToCheckout()">
+      Get Washing
+    </ion-button>
+
+  </div>
+
 </ion-content>

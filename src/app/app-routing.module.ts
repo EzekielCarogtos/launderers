@@ -37,6 +37,10 @@ const routes: Routes = [
 
 
 
+    path: 'checkout',
+    loadComponent: () =>
+      import('./pages/checkout/checkout.page').then(m => m.CheckoutPage)
+  }
 
   //{path: '', redirectTo: 'service', pathMatch: 'full'}
 ];
