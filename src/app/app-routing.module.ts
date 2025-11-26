@@ -21,6 +21,22 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 
+  {
+  path: 'bubblepass',
+  loadComponent: () =>
+    import('./bubblepass/bubblepass.page').then(m => m.BubblepassPage)
+},
+
+  {
+  path: 'review-plan',
+  loadComponent: () =>
+    import('./review-plan/review-plan.page').then(m => m.ReviewPlanPage)
+}
+
+
+
+
+
 
   //{path: '', redirectTo: 'service', pathMatch: 'full'}
 ];

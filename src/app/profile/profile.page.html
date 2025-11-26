@@ -31,7 +31,7 @@
 
     <div class="quick-actions">
 
-      <div class="action-card">
+      <div class="action-card" (click)="goToOrder()">
         <img src="assets/img/ordersbutton.png">
       </div>
 
@@ -54,7 +54,7 @@
         <h2>Special Care for You</h2>
       </ion-list-header>
 
-      <ion-item detail>
+      <ion-item detail (click)="goBubblePass()" >
         <img src="assets/img/crownbubblepass.png" slot="start" class="special-icon crown-icon">
         <ion-label>Try BubblePass</ion-label>
       </ion-item>
@@ -68,3 +68,5 @@
 
 
 </ion-content>
+
+

@@ -1,0 +1,95 @@
+<ion-content class="review-content"fullscreen>
+
+  <div class="section">
+    <h2 class="title">Review your plan</h2>
+    <h3 class="subtitle">Choose your plan</h3>
+  </div>
+
+  <div class="plan-box">
+
+    <div class="plan-header">BubblePass</div>
+
+    <ion-radio-group [(ngModel)]="selectedPlan">
+
+  <!-- 1 Month -->
+  <ion-item lines="none" class="plan-option">
+    <ion-radio slot="start" value="1m"></ion-radio>
+
+    <ion-label>
+      <div class="plan-title">1 Month • ₱~~~,~~~/mo.</div>
+    </ion-label>
+  </ion-item>
+
+  <div class="divider"></div>
+
+  <!-- 6 Months -->
+  <ion-item lines="none" class="plan-option">
+    <ion-radio slot="start" value="6m"></ion-radio>
+
+    <ion-label>
+      <div class="plan-title">6 Months • ₱~~~,~~~/mo.</div>
+      <div class="plan-sub">₱~~~,~~~ billed every 6 months</div>
+    </ion-label>
+  </ion-item>
+
+  <div class="divider"></div>
+
+  <!-- 12 Months -->
+  <ion-item lines="none" class="plan-option">
+    <ion-radio slot="start" value="12m"></ion-radio>
+
+    <ion-label>
+      <div class="plan-title">12 Months • ₱~~~,~~~/mo.</div>
+      <div class="plan-sub">₱~~~,~~~ billed every 12 months</div>
+    </ion-label>
+
+    <div class="best-value">Best Value</div>
+  </ion-item>
+
+</ion-radio-group>
+
+
+  </div>
+
+  <!-- PAYMENT METHOD -->
+  <div class="section pay-section">
+    <div class="pay-header">
+      <span class="subtitle">Payment Method</span>
+      <span class="change">Change</span>
+    </div>
+
+    <div class="payment-box">
+      <ion-icon name="card-outline" class="pm-icon"></ion-icon>
+      <div class="pm-info">
+        <div class="pm-title">Card</div>
+        <div class="pm-sub">•••• 0744</div>
+      </div>
+      <div class="pm-price">₱~~~,00</div>
+    </div>
+  </div>
+
+  <!-- AUTO RENEW -->
+  <div class="section renew-section">
+    <ion-checkbox></ion-checkbox>
+    <span class="renew-text">
+      Subscription automatically renews according to your plan.
+      Check out the <a href="#">terms</a>.
+    </span>
+  </div>
+
+  <!-- TOTAL -->
+  <div class="total-footer">
+  <div class="total-box">
+    <div class="total-row">
+      <span class="total-label">Total (incl. fees and tax)</span>
+      <span class="total-amount">₱~~~,00</span>
+    </div>
+
+    <ion-button expand="block" class="confirm-btn">
+      Confirm and subscribe
+    </ion-button>
+  </div>
+</div>
+
+
+</ion-content>
