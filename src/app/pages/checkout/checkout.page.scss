@@ -1,0 +1,174 @@
+.page-content {
+  --background: #f5f9ff;
+}
+
+.container {
+  padding: 16px;
+}
+
+.address-card {
+  background: white;
+  padding: 15px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.loc-icon, .box-icon {
+  font-size: 24px;
+  color: #005bbb;
+}
+
+.addr-text h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.addr-text p {
+  margin: 0;
+  font-size: 12px;
+  color: #6b6b6b;
+}
+
+.arrow {
+  margin-left: auto;
+  font-size: 20px;
+}
+
+.leave-row {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.section-title {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.details-row {
+  display: flex;
+  gap: 12px;
+}
+
+.date-item {
+  background: white;
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.date-item label {
+  font-size: 12px;
+  color: #6b6b6b;
+}
+
+.date-val {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.payment-box {
+  background: white;
+  padding: 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price-row, .total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.total-row {
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.cta {
+  margin-top: 25px;
+  height: 48px;
+  --background: #f8d067;
+  color: black;
+  font-weight: 600;
+}
+
+/* SUMMARY CARD */
+.summary-card {
+  background: #eff4fa;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+  margin-top: 20px;
+}
+
+.summary-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #6c6c6c;
+  margin-bottom: 14px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.summary-left {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.summary-img {
+  width: 42px;
+  height: 42px;
+}
+
+.item-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.item-note {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.summary-price {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 6px 0;
+  color: #4d4d4d;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 10px;
+}

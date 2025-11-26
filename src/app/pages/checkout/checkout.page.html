@@ -1,0 +1,136 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/basket"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="page-content">
+
+  <div class="container">
+
+    <!-- ⭐ DELIVERY MODE ONLY -->
+    <div *ngIf="deliveryType === 'delivery'" class="address-card">
+      <div class="row">
+        <ion-icon name="location-outline" class="loc-icon"></ion-icon>
+        <div class="addr-text">
+          <h3>{{ deliveryAddress }}</h3>
+          <p>Cabanatuan</p>
+        </div>
+        <ion-icon name="create-outline" class="edit-icon" (click)="showAddressModal = true"></ion-icon>
+      </div>
+
+      <ion-input [(ngModel)]="deliveryInstructions" placeholder="Delivery instructions"></ion-input>
+
+      <div class="leave-row">
+        <ion-icon name="archive-outline" class="box-icon"></ion-icon>
+        <span>Leave at the door</span>
+        <ion-toggle [(ngModel)]="leaveDoor"></ion-toggle>
+      </div>
+    </div>
+
+
+    <!-- ⭐ DELIVERY MODE ONLY: Delivery Details -->
+    <div *ngIf="deliveryType === 'delivery'">
+      <h2 class="section-title">Delivery Details</h2>
+
+      <div class="details-row">
+        <div class="date-item">
+          <label>Pick up Date</label>
+          <div class="date-val">{{ pickupDate | date:'EEE, MMM d' }}</div>
+        </div>
+
+        <div class="date-item">
+          <label>Delivery Date</label>
+          <div class="date-val">{{ deliveryDate | date:'EEE, MMM d' }}</div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ⭐ PICK-UP MODE ONLY -->
+    <div *ngIf="deliveryType === 'pickup'" class="pickup-block">
+      <h2 class="section-title">Pick Up Summary</h2>
+      <p>No delivery will be scheduled. Please proceed to the summary below.</p>
+    </div>
+
+
+    <!-- ⭐ PAYMENT METHOD (both modes) -->
+    <h2 class="section-title">Payment Method</h2>
+
+    <div class="payment-box">
+      <ion-icon name="card-outline"></ion-icon>
+      <span>Cash</span>
+      <span class="price">₱ {{ subtotal }}</span>
+    </div>
+
+
+    <!-- ⭐ SUMMARY (both modes) -->
+    <h2 class="section-title">Summary</h2>
+
+    <ion-item *ngFor="let item of items" lines="none">
+      <ion-thumbnail slot="start">
+        <img src="assets/img/casualW.png" alt="icon">
+      </ion-thumbnail>
+
+      <ion-label>
+        <h2>{{ item.name }}</h2>
+        <p>{{ item.note }}</p>
+      </ion-label>
+
+      <div class="item-price">₱ {{ item.price }}</div>
+    </ion-item>
+
+    <div class="price-row">
+      <span>Subtotal:</span>
+      <span>₱ {{ subtotal }}</span>
+    </div>
+
+    <!-- ⭐ DELIVERY FEE (delivery only) -->
+    <div *ngIf="deliveryType === 'delivery'" class="price-row">
+      <span>Standard Delivery Fee:</span>
+      <span>₱ {{ deliveryFee }}</span>
+    </div>
+
+    <!-- ⭐ TOTAL (auto updated in TS) -->
+    <div class="total-row">
+      <span>Total</span>
+      <span>₱ {{ total }}</span>
+    </div>
+
+
+    <!-- ⭐ CTA BUTTON -->
+    <ion-button expand="block" class="cta">
+      Done
+    </ion-button>
+
+  </div>
+
+
+  <!-- ⭐ ADDRESS EDIT MODAL -->
+  <ion-modal 
+    [isOpen]="showAddressModal"
+    (ionModalDidDismiss)="showAddressModal = false">
+
+    <ng-template>
+      <ion-content class="modal-content">
+        
+        <h2>Edit Address</h2>
+        
+        <ion-input
+          [(ngModel)]="deliveryAddress"
+          placeholder="Enter complete address">
+        </ion-input>
+
+        <ion-button expand="block" (click)="showAddressModal = false">
+          Save
+        </ion-button>
+
+      </ion-content>
+    </ng-template>
+
+  </ion-modal>
+
+</ion-content>
