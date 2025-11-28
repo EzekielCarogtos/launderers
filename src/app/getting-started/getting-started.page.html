@@ -1,0 +1,33 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container">
+    <div class="content">
+      <h1 class="title">Launderia</h1>
+    </div>
+    
+    <div class="card">
+      <img src="../../assets/img/gettingstarted.png" alt="Launderia App" class="card-image">
+      
+      <p class="subtitle">Where washing is never boring</p>
+      
+      <div class="buttons-container">
+        <ion-button 
+          expand="block" 
+          (click)="getStarted()" 
+          class="get-started-btn"
+          shape="round"
+          size="large">
+          Get Started
+        </ion-button>
+        
+        <ion-button 
+          expand="block" 
+          fill="clear" 
+          (click)="skip()" 
+          class="skip-btn"
+          size="large">
+          Skip
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

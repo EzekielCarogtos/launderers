@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/profile"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- HEADER -->
+  <div class="bp-header">
+    <img src="assets/img/whitecrown.png" class="crown" />
+    <h1>BubblePass</h1>
+    <p class="subtitle">Your all-access pass to freshness.</p>
+  </div>
+
+  <!-- Monthly Perks -->
+  <section class="section-block">
+    <h2 class="section-title">Monthly Perks</h2>
+
+    <div class="perk-card">
+      <img src="assets/img/discountcoupon.png" class="perk-icon">
+      <span>Up to 35% off laundry</span>
+    </div>
+
+    <div class="perk-card">
+      <img src="assets/img/freedelivery.png" class="perk-icon">
+      <span>Free Delivery</span>
+    </div>
+  </section>
+
+  <!-- Surprise Perks -->
+  <section class="section-block">
+    <h2 class="section-title">Surprise Perks</h2>
+
+    <div class="perk-card">
+      <img src="assets/img/surprisemonthlypromo.png" class="perk-icon">
+      <span>Surprise monthly promos</span>
+    </div>
+  </section>
+
+  <!-- PLAN BOX -->
+  <div class="plan-box">
+    <p class="start-label" style="text-align: left;">Starting from</p>
+    <h2 class="price" style="text-align: left;">₱ 299.00 / mo.</h2>
+
+    <ion-button expand="block" shape="round" class="select-btn" (click)="goToReviewPlan()">
+      Select Plan
+    </ion-button>
+  </div>
+
+</ion-content>

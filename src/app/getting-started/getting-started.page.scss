@@ -1,0 +1,91 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #2397c0;
+  padding: 20px 0 0 0; // Remove side padding, only top padding
+}
+
+.content {
+  text-align: center;
+  width: 100%;
+  padding: 0 20px; // Add side padding only to content
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background: #edf5ff;
+  border-radius: 40px 40px 0 0; // Rounded top corners only
+  padding: 30px 20px;
+  margin-top: auto; // Push to bottom
+  width: 100%; // Full width
+  flex-grow: 1; // Take remaining space
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 70vh; // Minimum height to cover most of the screen
+}
+
+.card-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 15px;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  font-weight: 500;
+  text-align: center;
+}
+
+.buttons-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.get-started-btn {
+  --background: #f8d881;
+  --color: #2c3e50;
+  --border-radius: 50px;
+  --box-shadow: 0 4px 15px rgba(248, 216, 129, 0.3);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  height: 50px;
+  
+  &:hover {
+    --background: #f9df99;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+}
+
+.skip-btn {
+  --color: #2397c0;
+  --background: transparent;
+  --border-color: #2397c0;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 50px;
+  font-weight: 500;
+  height: 50px;
+  
+  &:hover {
+    --background: rgba(35, 151, 192, 0.1);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+}

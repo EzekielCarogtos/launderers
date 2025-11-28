@@ -1,0 +1,69 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container">
+    <div class="content">
+      <h1 class="title">Launderia</h1>
+    </div>
+    
+    <div class="card">
+      <h2 class="card-title">Welcome Back</h2>
+      
+      <div class="error-message general-error" *ngIf="errors.general">{{ errors.general }}</div>
+      
+      <ion-list class="input-list">
+        <ion-item class="input-item" [class.error]="errors.usernameOrEmail" [class.float-label]="shouldFloat('usernameOrEmail')">
+          <ion-input 
+            [(ngModel)]="usernameOrEmail" 
+            class="custom-input"
+            (ionFocus)="onInputFocus('usernameOrEmail')"
+            (ionBlur)="onInputBlur('usernameOrEmail')"
+            (ionInput)="onUsernameOrEmailChange()">
+          </ion-input>
+          <label class="floating-label">Username / Email Address</label>
+        </ion-item>
+        <div class="error-message" *ngIf="errors.usernameOrEmail">{{ errors.usernameOrEmail }}</div>
+        
+        <ion-item class="input-item" [class.error]="errors.password" [class.float-label]="shouldFloat('password')">
+          <ion-input 
+            type="password" 
+            [(ngModel)]="password" 
+            class="custom-input"
+            (ionFocus)="onInputFocus('password')"
+            (ionBlur)="onInputBlur('password')"
+            (ionInput)="onPasswordChange()">
+          </ion-input>
+          <label class="floating-label">Password</label>
+        </ion-item>
+        <div class="error-message" *ngIf="errors.password">{{ errors.password }}</div>
+      </ion-list>
+
+      <ion-button 
+        expand="block" 
+        (click)="login()" 
+        class="login-btn" 
+        shape="round" 
+        size="large">
+        Login
+      </ion-button>
+
+      <p class="forgot-password">
+        <a (click)="forgotPassword()" class="link">Forgot your Password?</a>
+      </p>
+
+      <div class="or-divider">
+        <span class="divider-line"></span>
+        <span class="or-text">Or login with</span>
+        <span class="divider-line"></span>
+      </div>
+      
+      <div class="social-buttons">
+        <img src="../../assets/img/Facebook Circled.png" alt="Facebook" class="social-icon">
+        <img src="../../assets/img/Google.png" alt="Google" class="social-icon">
+      </div>
+
+      <p class="signup-link">
+        Don't have an account? 
+        <a (click)="signUp()" class="link">Sign Up</a>
+      </p>
+    </div>
+  </div>
+</ion-content>

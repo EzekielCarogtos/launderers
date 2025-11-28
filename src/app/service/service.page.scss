@@ -1,0 +1,297 @@
+/* Header title */
+ion-title { 
+  margin-left: 8px; 
+  font-weight: bold; 
+  font-size: 1.2rem; 
+}
+
+/* Main content padding */
+.main-content { 
+  padding: 15px; 
+  box-sizing: border-box;
+}
+
+/* Wash service image */
+.wash-service { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 10px; 
+}
+
+/* Segment buttons container */
+.service-selection { 
+  padding: 0 12px; 
+}
+
+/* Service items container */
+.service-items { 
+  padding: 20px 10px; 
+}
+
+/* Individual Card Container - ONLY FOR WEIGHT SECTION */
+.service-group-card {
+  background: #e6f2ff; // Light blue background
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #cce5ff;
+}
+
+/* Card section layout */
+.card-section { 
+  padding: 0;
+  margin-bottom: 24px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Section header */
+.section-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 0 8px; /* ADDED PADDING */
+}
+.section-header h3 { 
+  margin: 0; 
+  font-size: 18px; 
+  font-weight: 700; 
+  color: #333;
+}
+
+/* Badges */
+.badge { 
+  padding: 4px 10px; 
+  border-radius: 10px; 
+  font-size: 12px; 
+  font-weight: 600; 
+  text-transform: capitalize; 
+}
+.badge.required { 
+  background: #d8efff; 
+  color: #0077b6; 
+}
+.badge.optional { 
+  background: #e8e6e6; 
+  color: #7a7a7a; 
+}
+
+/* Subtitle */
+.subtitle { 
+  margin: 4px 0 12px; 
+  font-size: 13px; 
+  color: #777; 
+  padding: 0 8px; /* ADDED PADDING */
+}
+
+/* Card box - For everyday wear and additional services */
+.card { 
+  background: #ffffff; 
+  border-radius: 12px; 
+  padding: 6px 0; 
+  border: 1px solid #e6e6e6; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 12px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Selected card style */
+.card.selected {
+  background: #e6f2ff;
+  border: 1px solid #0099ff;
+  box-shadow: 0 4px 12px rgba(0, 153, 255, 0.3);
+}
+
+/* Option row - For weight section (inside light blue card) */
+.option-row { 
+  display: flex; 
+  align-items: center; 
+  --background: transparent; 
+  padding: 12px 16px; /* INCREASED PADDING */
+  border-bottom: 1px solid #cce5ff;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.option-row.selected {
+  background: #cce5ff;
+  border-radius: 8px;
+  margin: 0 -8px;
+  padding: 12px 16px; /* INCREASED PADDING */
+}
+
+.opt-label h4, .opt-price h4 { 
+  margin: 0; 
+  font-size: 14px; 
+}
+.opt-label { 
+  flex: 1; 
+}
+
+/* Radio and Checkbox styling */
+ion-radio {
+  --color: #ccc;
+  --color-checked: #0099ff;
+  --border-radius: 50%;
+  --border-width: 2px;
+  --size: 20px;
+  margin-right: 8px; /* ADDED MARGIN */
+}
+
+ion-checkbox {
+  --size: 18px;
+  --background: #fff;
+  --background-checked: #0099ff;
+  --border-color: #ccc;
+  --border-color-checked: #0099ff;
+  --checkmark-color: #fff;
+  --border-radius: 4px;
+  --border-width: 2px;
+  margin-right: 8px; /* ADDED MARGIN */
+}
+
+/* Icon image */
+.icon img { 
+  width: 42px; 
+  height: 42px; 
+  margin-left: 8px; /* ADDED MARGIN */
+}
+
+/* Details text */
+.details { 
+  flex: 1; 
+  margin-left: 12px; 
+  margin-right: 8px; /* ADDED MARGIN */
+}
+.details h3 { 
+  margin: 0; 
+  font-size: 16px; 
+  font-weight: 600; 
+  color: #333;
+}
+.details h4 { 
+  margin: 4px 0 0 0; 
+  font-size: 13px; 
+  color: #666; 
+}
+
+/* Disabled button style */
+.qty-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+/* Special instructions */
+.special-instructions { 
+  padding: 20px 16px; 
+  background: #f8f9fa;
+  border-radius: 16px;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e5e5;
+}
+.special-instructions h3 { 
+  margin: 0 0 8px; 
+  padding: 0 8px; /* ADDED PADDING */
+}
+.desc { 
+  margin: 0 0 20px; 
+  font-size: 13px; 
+  color: #666; 
+  line-height: 1.4; 
+  padding: 0 8px; /* ADDED PADDING */
+}
+.instructions-box { 
+  background: #fff; 
+  border-radius: 12px; 
+  border: 1px solid #cfcfcf; 
+  padding: 14px; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin: 0 8px; /* ADDED MARGIN */
+}
+.instructions-box .label { 
+  font-size: 14px; 
+  margin: 0 0 4px; 
+  color: #444; 
+}
+.instructions-box .placeholder { 
+  margin: 0; 
+  font-size: 13px; 
+  color: #aaa; 
+}
+
+/* Bottom bar container */
+.load-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #e5e5e5;
+  padding: 12px 16px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 50;
+}
+
+/* Quantity buttons container */
+.qty-box {
+  display: flex;
+  align-items: center;
+  background: #f5f7fa;
+  border-radius: 14px;
+  padding: 6px 10px;
+  gap: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+/* The plus/minus buttons */
+.qty-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: none;
+  background: #e3e9f1;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* The displayed number */
+.qty-value {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Add Load button */
+.add-load-btn {
+  background: #0077b6;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.add-load-btn:disabled {
+  background: #b6b6b6;
+  box-shadow: none;
+}

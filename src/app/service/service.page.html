@@ -1,0 +1,139 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Service</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-content" fullscreen [style.--padding-bottom.px]="100">
+
+  <!-- Header Image -->
+  <div class="wash-service">
+    <img [src]="headerImage" alt="Header Image">
+  </div>
+
+  <!-- Segment Selection -->
+  <div class="service-selection">
+    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="wash"><ion-label>Wash</ion-label></ion-segment-button>
+      <ion-segment-button value="dry"><ion-label>Dry</ion-label></ion-segment-button>
+      <ion-segment-button value="special"><ion-label>Special</ion-label></ion-segment-button>
+      <ion-segment-button value="press"><ion-label>Press</ion-label></ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <!-- Service Items -->
+  <div class="service-items">
+
+    <!-- SERVICE TYPE SECTION - No light blue card -->
+    <div class="card-section">
+      <div class="section-header" *ngIf="getSectionTitle()">
+        <h3>{{ getSectionTitle() }}</h3>
+        <span class="badge required">Required</span>
+      </div>
+      <h5 class="subtitle">Select 1</h5>
+
+      <ion-radio-group [(ngModel)]="selectedCasual">
+        <div class="card" 
+             *ngFor="let o of products" 
+             (click)="toggleCasual(o.id)"
+             [class.selected]="selectedCasual === o.id">
+          <div class="option-row">
+            <div class="icon">
+              <img [src]="o.image" alt="">
+            </div>
+            <div class="details">
+              <h3>{{ o.name }}</h3>
+              <h4>₱{{ o.price }} / {{ getUnitText() }}</h4>
+            </div>
+            <ion-radio slot="end" [value]="o.id"></ion-radio>
+          </div>
+        </div>
+      </ion-radio-group>
+    </div>
+
+    <!-- WEIGHT SECTION - Only this has light blue card -->
+    <div class="service-group-card" *ngIf="showWeightSection()">
+      <div class="card-section">
+        <div class="section-header">
+          <h3>Weight</h3>
+          <span class="badge required">Required</span>
+        </div>
+        <h5 class="subtitle">Select 1</h5>
+
+        <ion-radio-group [(ngModel)]="selectedWeight">
+          <div class="option-row" 
+               *ngFor="let w of weights" 
+               (click)="toggleWeight(w.value)"
+               [class.selected]="selectedWeight === w.value">
+            <div class="opt-label">
+              <h4>{{ w.value }}</h4>
+            </div>
+            <div class="opt-price">
+              <h4>{{ w.priceText }}</h4>
+            </div>
+            <ion-radio slot="end" [value]="w.value"></ion-radio>
+          </div>
+        </ion-radio-group>
+      </div>
+    </div>
+
+    <!-- ADDITIONAL SERVICES SECTION - No light blue card -->
+    <div class="card-section" *ngIf="showAdditionalServices()">
+      <div class="section-header">
+        <h3>Additional Services</h3>
+        <span class="badge optional">Optional</span>
+      </div>
+      <h5 class="subtitle">Select up to 3</h5>
+
+      <div class="card" 
+           *ngFor="let a of additionals" 
+           (click)="toggleAdditional(a.value)"
+           [class.selected]="selectedAdditionals.includes(a.value)">
+        <div class="option-row">
+          <div class="opt-label">
+            <h4>{{ a.name }}</h4>
+          </div>
+          <div class="opt-price">
+            <h4>{{ a.priceText }}</h4>
+          </div>
+          <ion-checkbox slot="end" [checked]="selectedAdditionals.includes(a.value)"></ion-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPECIAL INSTRUCTIONS -->
+    <div class="special-instructions">
+      <h3>Special Instructions</h3>
+      <h4 class="desc">
+        We'll take note of your preferences. Some special requests might not be guaranteed depending on load or material.
+      </h4>
+      <div class="instructions-box">
+        <h4 class="label">Instructions</h4>
+        <h4 class="placeholder">e.g. separate clothes by color</h4>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
+
+<!-- Bottom Bar -->
+<div class="load-footer">
+  <div class="qty-box">
+    <button class="qty-btn" (click)="decreaseQuantity()">-</button>
+    <span class="qty-value">{{ quantity }}</span>
+    <button class="qty-btn" 
+            [disabled]="!canIncreaseQuantity()" 
+            (click)="increaseQuantity()"
+            [class.disabled]="!canIncreaseQuantity()">
+      +
+    </button>
+  </div>
+
+  <button class="add-load-btn" [disabled]="quantity === 0" (click)="addLoadToBasket()">
+    {{ getButtonText() }}
+  </button>
+</div>

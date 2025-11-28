@@ -1,0 +1,316 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Basket</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="basket-content">
+
+  <!-- Debug button (remove in production) -->
+  <div style="padding: 16px; display: none;">
+    <ion-button expand="block" color="secondary" (click)="addSampleData()">
+      Add Sample Data (Debug)
+    </ion-button>
+  </div> 
+
+  <!-- Dynamic Delivery Location -->
+  <div class="delivery-location" *ngIf="basket.length > 0">
+    <ion-icon name="location-outline"></ion-icon>
+    <span>Delivery address: {{ userAddress ? userAddress : '' }}</span>
+  </div>
+
+  <!-- Empty Basket State -->
+  <div class="empty-basket" *ngIf="basket.length === 0">
+    <ion-icon name="cart-outline"></ion-icon>
+    <h3>Your basket is empty</h3>
+    <p>Add some items to get started</p>
+    <ion-button expand="block" class="place-order-btn" (click)="goToServices()">
+      <ion-icon name="shirt-outline" slot="start"></ion-icon>
+      Browse Services
+    </ion-button>
+  </div>
+
+  <!-- Basket Items -->
+  <div *ngIf="basket.length > 0">
+
+    <!-- SELECT ALL -->
+    <div class="select-all-row">
+      <ion-checkbox [(ngModel)]="selectAll" (ionChange)="toggleSelectAll()"></ion-checkbox>
+      <span>Select all</span>
+    </div>
+
+    <!-- GROUPED ITEMS -->
+    <div *ngFor="let group of groups" class="group-section">
+
+      <div class="group-header">
+        <h2>{{ group.segmentName }} Service</h2>
+      </div>
+
+      <!-- ITEM CARD -->
+      <div class="item-card" *ngFor="let item of group.items">
+        <ion-checkbox class="item-check" [(ngModel)]="item.selected" (ionChange)="onItemToggle()"></ion-checkbox>
+
+        <div class="item-content">
+          <div class="item-image-container">
+            <img [src]="imageFor(item)" class="item-image" />
+          </div>
+
+          <div class="item-info">
+            <h3 class="item-name">{{ getCasualName(item.casual) }}</h3>
+            
+            <div class="item-details">
+              <p class="item-type" *ngIf="item.casual === 'c1'">Type: Mixed</p>
+              <p class="item-weight">{{ item.weight ? item.weight + ' kg' : 'Weight: 8KG or less' }}</p>
+              <p class="item-additions" *ngIf="item.additionals.length">+ {{ item.additionals.join(', ') }}</p>
+            </div>
+
+            <div class="item-price-row">
+              <span class="item-price">₱{{ getPriceForCasual(item.casual) * (item.qty || 1) }}.00</span>
+              <div class="qty-row">
+                <button (click)="decrease(item)">−</button>
+                <span>{{ item.qty }}</span>
+                <button (click)="increase(item)">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="remove-btn" (click)="removeItem(item)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- LOADING SCREEN MODAL -->
+<ion-modal [isOpen]="isLoading" class="loading-modal" [backdropDismiss]="false">
+  <ng-template>
+    <div class="loading-container">
+      <div class="loading-content">
+        <div class="spinner-container">
+          <ion-spinner name="crescent" class="loading-spinner"></ion-spinner>
+        </div>
+        <h3 class="loading-title">Processing Your Order</h3>
+        <p class="loading-message">Please wait while we confirm your laundry order...</p>
+        <div class="loading-progress">
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ion-modal>
+
+</ion-content>
+
+<!-- FIXED FOOTER CHECKOUT BAR -->
+<div class="checkout-bar" *ngIf="basket.length > 0">
+  <div class="total-section">
+    <div class="total-label">All</div>
+    <div class="total-amount">₱{{ total }}.00</div>
+  </div>
+
+  <button class="checkout-btn" (click)="openCheckoutModal()">
+    Checkout
+  </button>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<ion-modal [isOpen]="checkoutOpen" (didDismiss)="checkoutOpen=false">
+  <ng-template>
+    <ion-header [translucent]="true">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="checkoutOpen=false">
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title>Checkout</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="checkout-modal">
+      
+      <!-- Service Section -->
+      <div class="service-section">
+        <div class="section-header">
+          <h3>Order Summary</h3>
+          <span class="address">{{ userAddress || 'Enter address below' }}</span>
+        </div>
+
+        <!-- Delivery/Pickup Tabs -->
+        <div class="delivery-tabs">
+          <button 
+            class="tab-button" 
+            [class.active]="checkoutData.type === 'delivery'"
+            (click)="checkoutData.type = 'delivery'">
+            Delivery
+          </button>
+          <button 
+            class="tab-button" 
+            [class.active]="checkoutData.type === 'pickup'"
+            (click)="checkoutData.type = 'pickup'">
+            Pick Up
+          </button>
+        </div>
+
+        <!-- Date and Time Selection -->
+        <div class="datetime-section">
+          <div class="datetime-row">
+            <div class="datetime-label">When</div>
+          </div>
+          
+          <div class="datetime-row">
+            <div class="datetime-col">
+              <div class="datetime-label">{{ checkoutData.type === 'delivery' ? 'Delivery Date' : 'Pick up Date' }}</div>
+              <div class="datetime-value selectable" (click)="openDatePicker()">
+                {{ checkoutData.selectedDate || 'Select date' }}
+                <ion-icon name="chevron-down-outline" class="dropdown-icon"></ion-icon>
+              </div>
+            </div>
+            <div class="datetime-col">
+              <div class="datetime-label">Time</div>
+              <div class="datetime-value selectable" (click)="openTimePicker()">
+                {{ checkoutData.selectedTime || 'Select time' }}
+                <ion-icon name="chevron-down-outline" class="dropdown-icon"></ion-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Date Picker -->
+        <div class="picker-overlay" *ngIf="datePickerOpen" (click)="closePickers()">
+          <div class="picker-container" (click)="$event.stopPropagation()">
+            <div class="picker-header">
+              <h3>Select Date</h3>
+              <button class="close-picker" (click)="closePickers()">×</button>
+            </div>
+            <div class="picker-options">
+              <button 
+                *ngFor="let date of availableDates" 
+                class="picker-option"
+                [class.selected]="checkoutData.selectedDate === date"
+                (click)="selectDate(date)">
+                {{ date }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Time Picker -->
+        <div class="picker-overlay" *ngIf="timePickerOpen" (click)="closePickers()">
+          <div class="picker-container" (click)="$event.stopPropagation()">
+            <div class="picker-header">
+              <h3>Select Time</h3>
+              <button class="close-picker" (click)="closePickers()">×</button>
+            </div>
+            <div class="picker-options time-options">
+              <button 
+                *ngFor="let time of availableTimes" 
+                class="picker-option time-option"
+                [class.selected]="checkoutData.selectedTime === time"
+                (click)="selectTime(time)">
+                {{ time }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Section -->
+      <div class="summary-section">
+        <h3 class="summary-header">Summary</h3>
+        
+        <!-- Items List -->
+        <div class="items-list">
+          <div class="summary-row">
+            <span class="label">Items</span>
+            <span class="value">{{ getSelectedItemsCount() }}</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Cost</span>
+            <span class="value">₱{{ total }}.00</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Selected Items Details -->
+        <div class="selected-items">
+          <div *ngFor="let group of groups">
+            <div *ngFor="let item of group.items" class="selected-item-detail">
+              <div class="item-main">
+                <h4 class="item-name">{{ getCasualName(item.casual) }}</h4>
+                <p class="item-details">
+                  {{ item.weight ? item.weight : '8KG or less' }} • {{ group.segmentName }}
+                </p>
+              </div>
+              <div class="item-price">
+                <div class="price">₱{{ getPriceForCasual(item.casual) * (item.qty || 1) }}.00</div>
+                <div class="quantity">{{ item.qty || 1 }} Machine Load</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Price Breakdown -->
+        <div class="price-breakdown">
+          <div class="summary-row">
+            <span class="label">Subtotal:</span>
+            <span class="value">₱{{ total }}.00</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Delivery Fee</span>
+            <span class="value" *ngIf="checkoutData.type === 'delivery'">₱30.00</span>
+            <span class="value" *ngIf="checkoutData.type === 'pickup'">₱0.00</span>
+          </div>
+          <div class="summary-row total-row">
+            <span class="label">Total (incl. fees and tax)</span>
+            <span class="value total-amount">₱{{ getTotalWithFees() }}.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Address Input -->
+      <div class="address-section">
+        <h3>Delivery Address</h3>
+        <div class="address-input">
+          <ion-input 
+            [(ngModel)]="checkoutData.address" 
+            placeholder="Enter your delivery address"
+            (ionInput)="onAddressInput()"
+          ></ion-input>
+        </div>
+      </div>
+
+      <!-- Payment Method -->
+      <div class="payment-section">
+        <h3>Payment Method</h3>
+        <ion-segment [(ngModel)]="checkoutData.payment" class="payment-segment">
+          <ion-segment-button value="cash">
+            <ion-label>Cash</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="gcash">
+            <ion-label>GCash</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+      <!-- Confirm Button -->
+      <div class="confirm-section">
+        <ion-button expand="block" class="confirm-btn" (click)="confirmCheckout()">
+          Get Washing
+        </ion-button>
+      </div>
+
+    </ion-content>
+  </ng-template>
+</ion-modal>

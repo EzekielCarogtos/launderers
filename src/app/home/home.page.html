@@ -1,0 +1,56 @@
+<ion-content [fullscreen]="true">
+  <div id="main-content">
+    
+    <div class="header">
+        <h1>Welcome {{username}}.</h1>  
+        <img src="../../assets/img/notifications.png" alt="">
+    </div>
+
+    <div class="distance">
+      <img src="../../assets/img/distance.png" alt="">
+      <h6>Burgos Avenue, Cabanatuan City, PH</h6>
+    </div>
+
+    <div class="services">
+      <img src="../../assets/img/wash.png" alt="" class="small">
+      <img src="../../assets/img/dry.png" alt="" class="small">
+      <img src="../../assets/img/fold.png" alt="" class="small">
+      <img src="../../assets/img/special.png" alt="" class="small">
+      <img src="../../assets/img/ironing.png" alt="" class="small">
+    </div>
+
+    <div class="promo">
+      <img src="../../assets/img/promo.png" alt="">
+    </div>
+
+      <ion-tabs>
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button (click)="goToPage('home')">
+            <ion-icon name="home-outline"></ion-icon>
+            <ion-label>Home</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button (click)="goToPage('service')">
+            <ion-icon name="construct-outline"></ion-icon>
+            <ion-label>Service</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button (click)="goToPage('orders')">
+            <ion-icon name="receipt-outline"></ion-icon>
+            <ion-label>Orders</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button (click)="goToPage('basket')">
+            <ion-icon name="basket-outline"></ion-icon>
+            <ion-label>Basket</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button (click)="goToPage('profile')">
+            <ion-icon name="person-outline"></ion-icon>
+            <ion-label>Profile</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+
+  </div>
+</ion-content>

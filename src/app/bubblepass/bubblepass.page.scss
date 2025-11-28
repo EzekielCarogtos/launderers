@@ -1,0 +1,92 @@
+ion-content {
+  --background: linear-gradient(#1ea6cf, #83d5ed);
+}
+
+/* HEADER */
+.bp-header {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+
+.crown {
+  width: 40px;
+  opacity: 0.9;
+}
+
+.bp-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 8px;
+}
+
+.subtitle {
+  color: #e8f8ff;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* SECTION TITLE */
+.section-block {
+  padding: 20px;
+  padding-top: 5px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+/* PERK CARDS */
+.perk-card {
+  background: #22a8d3;
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.perk-icon {
+  width: 35px;
+  margin-right: 12px;
+}
+
+/* PLAN BOX */
+.plan-box {
+  background: #fff;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  padding: 30px 25px;
+  margin-top: 180px;       
+  text-align: center;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+.start-label {
+  font-size: 12px;
+  color: #777;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 5px;
+}
+
+.select-btn {
+  --background: #fbd266;
+  --border-radius: 14px;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.perk-card span,
+.perk-card p {
+  color: #fff !important;
+}
